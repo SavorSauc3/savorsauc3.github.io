@@ -1,40 +1,46 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SavorSauce Homepage</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SavorSauce Homepage</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="grid-container">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div>
-            <div id="container">
-                <span id="text1"></span>
-                <span id="text2"></span>
-            </div>
-            
-            <svg id="filters">
-                <defs>
-                    <filter id="threshold">
-                        <feColorMatrix in="SourceGraphic"
-                            type="matrix"
-                            values="1 0 0 0 0
-                                    0 1 0 0 0
-                                    0 0 1 0 0
-                                    0 0 0 255 -140" />
-                    </filter>
-                </defs>
-            </svg>
+        <div id="title" class="grid-item">
+            <h1>Nathaniel Lybrand</h1>
         </div>
-        <script src="main.js" async defer></script>
-    </body>
+        <div id="container" class="grid-item">
+            <span id="text1"></span>
+            <span id="text2"></span>
+        </div>
+        <svg id="filters">
+            <defs>
+                <filter id="threshold">
+                    <feColorMatrix in="SourceGraphic"
+                        type="matrix"
+                        values="1 0 0 0 0
+                                0 1 0 0 0
+                                0 0 1 0 0
+                                0 0 0 255 -140" />
+                </filter>
+            </defs>
+        </svg>
+        <iframe id="if" width="560" height="315" src="https://www.youtube.com/embed/ZDU7zAi1jYw?si=qKVd1nimU92bMDTJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <h2>Newest Video ☝️</h2>
+    </div>
+    <script src="main.js" async defer></script>
+</body>
 </html>

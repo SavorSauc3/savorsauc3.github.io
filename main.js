@@ -11,8 +11,7 @@ const elts = {
 const texts = [
 	"Python",
 	"JavaScript",
-	"C#",
-	"C++",
+	"All The C's",
 	"TensorFlow",
 	"PyTorch",
 ];
