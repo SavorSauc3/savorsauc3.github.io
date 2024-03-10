@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: rgb(1, 31, 75);
+    background: linear-gradient(to right, rgb(0, 107, 189), rgb(237, 232, 228));
     font-family: 'Raleway', sans-serif;
 }
 
@@ -38,6 +38,93 @@ h2 {
 	top: 78vh;
 }
 
+a {
+    color:rgb(179, 205, 224);
+    text-decoration: none;
+}
+
+* {
+    outline: 0;
+}
+
+#thumbnail-list {
+    position: relative;
+    left: 14vw;
+    max-width: 500px;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+    border: 5px solid rgb(237, 232, 228)
+}
+
+#thumbnail {
+    display: flex;
+    max-width: 100%;
+    margin: 0 5px;
+    padding: 5px;
+    position: relative;
+}
+
+#thumbnail a {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 9997;
+}
+
+#thumbnail img {
+    width: 100%;
+    height: 280px;
+    float: left;
+}
+
+.overlay-box {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    z-index: 9998;
+    left: 0;
+    padding: 5%;
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));
+}
+
+.meta {
+    font-size: 14px;
+    display: block;
+}
+
+.main-title {
+    font-size: 16px;
+    display: block;
+    font-weight: 700;
+    text-shadow: 0 0 1px rgba(0,0,0,0.5);
+}
+
+.description {
+    color: #ccc;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+    color: #ccc;
+    max-height: 0;
+    line-height: 18px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
+}
+
+#thumbnail a:hover .description {
+    opacity: 1;
+    max-height: 100px;
+    margin-top: 5px;
+    transition: opacity 0.4s ease-out, max-height 0.9s ease-out;
+}
+
+#thumbnail a:hover .overlay-box {
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,1));
+}
+
 #container {
 	position: fixed;
     text-align: center;
@@ -50,7 +137,7 @@ h2 {
 }
 
 #if {
-	position: absolute;
+	position: fixed;
     color: rgb(179, 205, 224);
     font-size: 30pt;
     text-align: center;
