@@ -28,7 +28,7 @@ body {
 	top: 0vh;
 }
 
-h2 {
+#newest-video h2 {
 	position: fixed;
     color: #ffa759;
     font-size: 20pt;
@@ -36,6 +36,42 @@ h2 {
     margin-top: 40px;
 	left: 50vw;
 	top: 78vh;
+}
+
+p {
+    color: #ffa759;
+    font-size: 11pt;
+    text-align: center;
+}
+
+h1 {
+    color: #ff3333;
+    text-align: center;
+}
+
+h2 {
+    color: #d4bfff;
+    text-align: center;
+}
+
+h3 {
+    color: #bae67e;
+    text-align: center;
+}
+
+h4 {
+    color: #73d0ff;
+    text-align: center;
+}
+
+h5 {
+    color: #cbccc6;
+    text-align: center;
+}
+
+h6 {
+    color: #cbccc6;
+    text-align: center;
 }
 
 a {
