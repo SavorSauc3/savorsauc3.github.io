@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SavorSauce | Convolutional Art: How AI Sees Videos</title>
+    <style>
+        /* Center the content */
+        .article-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Changed from 'center' to 'flex-start' */
+            min-height: 100vh; /* Changed from 'height' to 'min-height' */
+            flex-wrap: wrap;
+        }
+        /* Style for the markdown content */
+        #markdown-container {
+            flex-grow: 1;
+            max-width: 800px; /* Adjust as needed */
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #1f2430;
+            margin: 10px;
+        }
+
+        /* Mirage Color Scheme */
+        .language .code {
+            background-color: #20242d;
+            color: #abb2bf;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .language .code .keyword {
+            color: #c678dd;
+        }
+        
+        .language .code .comment {
+            color: #5c6370;
+        }
+        
+        .language .code .string {
+            color: #98c379;
+        }
+        
+        .language .code .number {
+            color: #d19a66;
+        }
+        
+        .language .code .operator {
+            color: #56b6c2;
+        }
+
+        /* Style for the advertisement containers */
+        .advertisement-1 {
+            display: none;
+            flex-grow: 1;
+            max-width: 180px; /* Adjust as needed */
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #1f2430;
+            margin: 5px;
+        }
+        .advertisement-2 {
+            display: none;
+            flex-grow: 1;
+            max-width: 190px; /* Adjust as needed */
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #1f2430;
+            margin: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div id="navbar-element">
+            <a href="index.html">Home</a>
+        </div>
+        <div id="navbar-element">
+            <a href="#products">Products</a>
+        </div>
+        <div id="navbar-element">
+            <a href="#about">About</a>
+        </div>
+        <div id="navbar-element">
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    <div class="article-container">
+        <div class="advertisement-1">
+            <!-- Replace this with your actual ad code -->
+            <p>This is where your first advertisement will go.</p>
+        </div>
+        <div id="markdown-container">
+            <md-block>
+# Convolutional Art: How AI Sees Video
+![AI Image](convart_thumbnail_1.png)
+<br>
+**This article is the direct sequel to my previous article: Convolutional Art: How AI Sees the World, make sure to read it first since I won't be covering the previous logic in this article.**
+<br><br>
+By this point we understand how AI extracts information from imagery through convolutions of the image. We know that the convolutional kernels which are used by the AI are modified such that the AI can use them to predict additional data about the image. With this in mind, allowing AI to use video may seem as simple as splitting the video into separate frames, then feeding those frames into the model. However, there are some considerations we must keep in mind.
+<br><br>
+Something which exists in video, which does not exist in imagery is what I will call "temporal data". That is, data which only comes into view when watching multiple sequential frames. Some examples of temporal data include actions (such as throwing a ball, or laughing), as well as physics (an apple falling from a tree). Although we as humans are entirely capable of understanding temporal data, the AI we spoke of in the previous article would be unable to do so.
+<br><br>
+In case you are wondering why the CNN (Convolutional Neural Network), which only was invented about a decade ago, would be unable to understand temporal data, we need to understand a little more about AI.
+<br><br>
+AI, despite being relatively complex in its development, is in actuality very simple. A set of inputs are fed through a multilayered network of weights and biases, which produce an output. This output is compared to the predictions that are expected, and the difference is applied to the weights (with some additional steps). This is how neural networks learn, do you see the problem? There is nothing within the network that would allow it to remember any data from previous inputs. This is not very good for the purpose of predicting based on temporal data, so new model architectures were developed.
+<br><br>
+The first major proposition which was brought up by researchers is known as an RNN (Recurrent Neural Network). Much like the original CNN (which just had one set of inputs), the RNN not only feeds the inputs of the current step, but also the inputs of the last step, into the model. This way, the RNN has knowledge of the previous frame. This is as far as I am going to explain this topic, but if you are interested in learning more, I recommend [HuggingFaces course on transformers](https://huggingface.co/learn/audio-course/chapter0/introduction).
+<br><br>
+So with that previous section in mind, I think that humans wouldn't need to visualize what a RNN is seeing. This is because the human brain already does what RNN's do, except much better. We know that humans are very good at understanding temporal data due to our ability to understand natural language as well as physics.
+<br><br>
+To visualize the neural networks vision in a video format, we first need to import the code from the previous tutorial.
+```
+# Import Dependencies
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+
+# Create a function to process RGB images with Convolutional Kernels
+def conv_art(image, r_k, g_k, b_k):
+    r_chan = image[:, :, 0]
+    g_chan = image[:, :, 1]
+    b_chan = image[:, :, 2]
+
+    r_chan_filtered = cv2.filter2D(r_chan, -1, r_k) * 255 # Bring the value from 0-1 to 0-255
+    g_chan_filtered = cv2.filter2D(g_chan, -1, g_k) * 255
+    b_chan_filtered = cv2.filter2D(b_chan, -1, b_k) * 255
+    full_img = np.array([r_chan_filtered, g_chan_filtered, b_chan_filtered], dtype="int").transpose(1, 2, 0)
+    return full_img
+```
+This is all of the code which we will be using from the last section. Next, we will write a function to convert a full video. We first need to cut the video into its frames, so that we can process them one at a time. But before we do that, we will need to actually load the video, and get some basic details about the video, such as the length, width and height, as well as the fps.
+```
+cap = cv2.VideoCapture(video_path)
+length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps = int(cap.get(cv2.CAP_PROP_FPS))
+```
+Now, we need to loop through the video, so that we can process each frame, then display it after processing it through the filter code we prepared in the last article.
+```
+while (cap.isOpened()):
+    for i in range(0, length):
+        ret, frame = cap.read()
+        frame = conv_art(frame, r_k=r_k, g_k=g_k, b_k=b_k).astype(np.uint8)
+        cv2.imshow('Frame', frame)
+        if cv2.waitKey(25) & 0xFF == ord('q'):
+            break # break if q key is pressed
+    break # break after video ends
+cap.release()
+cv2.destroyAllWindows()
+```
+And just like that, we have fully developed our code to process video through the same pipeline that we prepared in the last article. Now we should encapsulate our code into a single function, which I will provide below.
+```
+def conv_video_art(video_path, r_k, g_k, b_k, save=False):
+    """
+    Processes a video through a convolutional kernel
+    Separate kernels for each color channel
+    """
+    cap = cv2.VideoCapture(video_path)
+    
+    length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    fps = int(cap.get(cv2.CAP_PROP_FPS))
+    
+    if save == False:
+        # Loop until the end of the video
+        while (cap.isOpened()):
+            for i in range(0, length):
+
+                # Capture frame-by-frame
+                ret, frame = cap.read()
+
+                frame = conv_art(frame, r_k=r_k, g_k=g_k, b_k=b_k).astype(np.uint8)
+                # Display the resulting frame
+                cv2.imshow('Frame', frame)
+
+                if cv2.waitKey(25) & 0xFF == ord('q'):
+                    break
+            break
+
+        # release the video capture object
+        cap.release()
+        # Closes all the windows currently opened.
+        cv2.destroyAllWindows()
+    else:
+        filename = video_path.split('.')[0] + "_convart"
+        print(f"Video will contain {length} frames of height {height} and width {width} at {fps} fps")
+        video = cv2.VideoWriter(filename + ".mp4", -1, fps, (width, height))
+        
+        for i in range(0, length): # Loop through frames
+            ret, frame = cap.read()
+            frame = conv_art(frame, r_k=r_k, g_k=g_k, b_k=b_k).astype(np.uint8)
+            video.write(frame)
+        cv2.destroyAllWindows()
+        video.release()
+```
+            </md-block>
+        </div>
+        <div class="advertisement-2">
+            <!-- Replace this with your actual ad code -->
+            <p>This is where your second advertisement will go.</p>
+        </div>
+    </div>
+</body>
+</html>
