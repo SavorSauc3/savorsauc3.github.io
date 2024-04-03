@@ -38,6 +38,17 @@ body {
 	top: 78vh;
 }
 
+.navbar {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+    }
+}
+
 p {
     color: #ffa759;
     font-size: 11pt;
@@ -229,6 +240,7 @@ img {
 }
 
 #navbar-element {
+    display: flexbox;
     background-color: #343a40;
     display: inline-block;
     vertical-align: middle;
@@ -241,7 +253,7 @@ img {
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
     margin: auto;
-    padding: 20px;
+    padding: 10px;
     border-radius: 20px;
 }
 
