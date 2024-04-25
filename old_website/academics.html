@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Gallery</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1f2430;
+  }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+</style>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div id="navbar-element">
+            <a href="index.html">Home</a>
+        </div>
+        <div id="navbar-element">
+            <a href="#products">Products</a>
+        </div>
+        <div id="navbar-element">
+            <a href="about.html">About</a>
+        </div>
+        <div id="navbar-element">
+            <a href="#contact">Contact</a>
+        </div>
+        <div id="navbar-element">
+            <a href="profile.html">Career Profile</a>
+        </div>
+        <div id="navbar-element">
+            <a href="academics.html">Academics</a>
+        </div>
+    </div>
+
+<div class="container">
+  <label for="categories">Choose a category:</label>
+  <select id="categories" onchange="showContent()">
+    <option value="0">Select</option>
+    <option value="1">Networking Skills</option>
+    <option value="2">End-User Design</option>
+    <option value="3">Training Systems</option>
+    <option value="4">Web Design</option>
+    <option value="5">Business Communications</option>
+  </select>
+
+  <div id="networking" class="content">
+    <h2>Networking Skills</h2>
+    <!-- Add content related to Networking Skills here -->
+  </div>
+
+  <div id="end-user" class="content">
+    <h2>End-User Design</h2>
+    <!-- Add content related to End-User Design here -->
+  </div>
+
+  <div id="training" class="content">
+    <h2>AI And Machine Learning</h2>
+    <!-- Add content related to Training Systems here -->
+  </div>
+
+  <div id="web-design" class="content">
+    <h2>Web Design</h2>
+    <!-- Add content related to Web Design here -->
+  </div>
+
+  <div id="business-communications" class="content">
+    <h2>Business Communications</h2>
+    <!-- Add content related to Business Communications here -->
+    <h3>Technical Instructional Document</h3>
+    <ul>
+      <li><strong>Developed instructional document</strong> to teach employees how to configure a new desktop workstation to be used in the workplace.</li>
+      <br>
+      <li>Applied <strong>technical skills</strong> to effectively instruct employees; as well as <strong>communication skills</strong> to make sure that the document was easy to understand for someone with little to no technical experience.</li>
+      <br>
+      <li>Demonstrated <strong>technical skills</strong>, <strong>interpersonal communication skills</strong>, as well as <strong>critical thinking skills</strong>.</li>
+      <br>
+      <li>This project taught me how to <strong>communicate</strong> with others on <strong>technical</strong> topics, even if they have little to no technical experience.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+function showContent() {
+  var selectBox = document.getElementById("categories");
+  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+  var contentDivs = document.getElementsByClassName("content");
+  
+  for (var i = 0; i < contentDivs.length; i++) {
+    contentDivs[i].style.display = "none";
+  }
+  
+  if (selectedValue !== "0") {
+    document.getElementById(selectedValue === "5" ? "business-communications" : selectedValue === "4" ? "web-design" : selectedValue === "3" ? "training" : selectedValue === "2" ? "end-user" : "networking").style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>

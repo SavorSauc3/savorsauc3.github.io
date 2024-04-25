@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SavorSauce Homepage</title>
+    <meta name="description" content="SavorSauce Homepage">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<div class="navbar">
+    <div id="navbar-element">
+        <a href="index.html">Home</a>
+    </div>
+    <div id="navbar-element">
+        <a href="#products">Products</a>
+    </div>
+    <div id="navbar-element">
+        <a href="about.html">About</a>
+    </div>
+    <div id="navbar-element">
+        <a href="#contact">Contact</a>
+    </div>
+    <div id="navbar-element">
+        <a href="profile.html">Career Profile</a>
+    </div>
+    <div id="navbar-element">
+        <a href="academics.html">Academics</a>
+    </div>
+</div>
+    <div id="thumbnail-list">
+        <div id="thumbnail">
+            <a href="article_1.html">
+                <img class="article-img" src="artificial-intelligence-6767502_1280.jpg" alt="AI Image">
+                <span class="overlay-box">
+                    <span class="meta">March 15, 2024</span>
+                    <span class="main-title">Getting Started With Machine Learning</span>
+                    <span class="description">If you are looking to learn more about AI and Machine Learning, this is for you!</span>
+                </span>
+            </a>
+        </div>
+        <div id="thumbnail">
+            <a href="article_2.html">
+                <img class="article-img" src="convart_thumbnail_0.png" alt="AI Image">
+                <span class="overlay-box">
+                    <span class="meta">March 20, 2024</span>
+                    <span class="main-title">Convolutional Art: How AI Sees the World</span>
+                    <span class="description">AI doesn't see the world in the same way that humans do, the real technique uses Convolutions</span>
+                </span>
+            </a>
+        </div>
+        <div id="thumbnail">
+            <a href="article_3.html">
+                <img class="article-img" src="convart_thumbnail_1.png" alt="AI Image">
+                <span class="overlay-box">
+                    <span class="meta">March 23, 2024</span>
+                    <span class="main-title">Convolutional Art: AI Application to Video Data</span>
+                    <span class="description">Using the same process of convolution as the last article, we can transform entire videos.</span>
+                </span>
+            </a>
+        </div>
+        <div id="thumbnail">
+            <a href="article_4.html">
+                <img class="article-img" src="article_4_thumbnail.png" alt="AI Image">
+                <span class="overlay-box">
+                    <span class="meta">March 24, 2024</span>
+                    <span class="main-title">AI Will Never Rule the World; Here's Why</span>
+                    <span class="description">With all of the hype regarding artificial intelligence, there have been many professionals who hark that the end of the humanity is upon us.</span>
+                </span>
+            </a>
+        </div>
+        <div id="thumbnail">
+            <a href="">
+                <img class="article-img" src="artificial-intelligence-6767502_1280.jpg" alt="AI Image">
+                <span class="overlay-box">
+                    <span class="meta">March 3, 2024</span>
+                    <span class="main-title">A main title text</span>
+                    <span class="description">A description text</span>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="grid-container">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="title" class="grid-item">
+            <h1>🧙‍♂️SavorSauce🧙‍♂️</h1>
+        </div>
+        <div id="container" class="grid-item">
+            <span id="text1"></span>
+            <span id="text2"></span>
+        </div>
+        <svg id="filters">
+            <defs>
+                <filter id="threshold">
+                    <feColorMatrix in="SourceGraphic"
+                        type="matrix"
+                        values="1 0 0 0 0
+                                0 1 0 0 0
+                                0 0 1 0 0
+                                0 0 0 255 -140" />
+                </filter>
+            </defs>
+        </svg>
+        <iframe id="if" width="560" height="315" src="https://www.youtube.com/embed/ZDU7zAi1jYw?si=qKVd1nimU92bMDTJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <script src="main.js" async defer></script>
+</body>
+</html>

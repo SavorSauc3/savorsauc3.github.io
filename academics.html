@@ -1,130 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academic Gallery</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1f2430;
-  }
-  .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  .content {
-    display: none;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-</style>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathaniel Lybrand | Academics</title>
+    <!-- Include Bootstrap CSS with Cyborg theme from CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <div id="navbar-element">
-            <a href="index.html">Home</a>
+    <!-- Navbar using Bootstrap with Cyborg theme -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Nathaniel Lybrand</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <!--
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Career Profile</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="academics.html">Academics</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="navbar-element">
-            <a href="#products">Products</a>
+    </nav>
+
+    <div class="container mt-5">
+        <label for="categories">Choose a category:</label>
+        <select id="categories" onchange="showContent()" class="form-control">
+            <option value="0">Select</option>
+            <option value="1">Networking Skills</option>
+            <option value="2">End-User Design</option>
+            <option value="3">Training Systems</option>
+            <option value="4">Web Design</option>
+            <option value="5">Business Communications</option>
+        </select>
+
+        <div id="networking" class="content mt-3" style="display: none;">
+            <h2>Networking Skills</h2>
+            <!-- Add content related to Networking Skills here -->
+            <h3>Palo Alto Next Gen Firewall</h3>
+            <ul>
+                <li><strong>Configured PAN Firewall</strong> using both networking skills as well as Cybersecurity skills to secure the network.</li>
+            </ul>
         </div>
-        <div id="navbar-element">
-            <a href="about.html">About</a>
+
+        <div id="end-user" class="content mt-3" style="display: none;">
+            <h2>End-User Design</h2>
+            <!-- Add content related to End-User Design here -->
+            <ul>
+                <li><strong>Developed web-based GUI</strong> for interacting with Google API's such as the Youtube Data API</li>
+            </ul>
         </div>
-        <div id="navbar-element">
-            <a href="#contact">Contact</a>
+
+        <div id="training" class="content mt-3" style="display: none;">
+            <h2>AI And Machine Learning</h2>
+            <!-- Add content related to Training Systems here -->
+            <h3>Kaggle Competitions</h3>
+            <ul>
+                <li><strong>Competed in prestigious Kaggle Competitions</strong> such as Optiver 2023 and BirdCLEF 2024</li>
+                <li><strong>Achieved top 20% scoring on the Optiver 2023 competition.</strong> A prestigious competition where AI practitioners predicted stock market data from the S&P 500.</li>
+            </ul>
         </div>
-        <div id="navbar-element">
-            <a href="profile.html">Career Profile</a>
+
+        <div id="web-design" class="content mt-3" style="display: none;">
+            <h2>Web Design</h2>
+            <!-- Add content related to Web Design here -->
+            <h3>Portfolio Website</h3>
+            <ul>
+                <li><strong>Developed portfolio website</strong> using HTML, and Bootstrap CSS. A framework for developing HTML websites without external CSS files.</li>
+            </ul>
         </div>
-        <div id="navbar-element">
-            <a href="academics.html">Academics</a>
+
+        <div id="business-communications" class="content mt-3" style="display: none;">
+            <h2>Business Communications</h2>
+            <!-- Add content related to Business Communications here -->
+            <h3>Technical Instructional Document</h3>
+            <ul>
+                <li><strong>Developed instructional document</strong> to teach employees how to configure a new desktop workstation to be used in the workplace.</li>
+                <br>
+                <li>Applied <strong>technical skills</strong> to effectively instruct employees; as well as <strong>communication skills</strong> to make sure that the document was easy to understand for someone with little to no technical experience.</li>
+                <br>
+                <li>Demonstrated <strong>technical skills</strong>, <strong>interpersonal communication skills</strong>, as well as <strong>critical thinking skills</strong>.</li>
+                <br>
+                <li>This project taught me how to <strong>communicate</strong> with others on <strong>technical</strong> topics, even if they have little to no technical experience.</li>
+            </ul>
         </div>
     </div>
 
-<div class="container">
-  <label for="categories">Choose a category:</label>
-  <select id="categories" onchange="showContent()">
-    <option value="0">Select</option>
-    <option value="1">Networking Skills</option>
-    <option value="2">End-User Design</option>
-    <option value="3">Training Systems</option>
-    <option value="4">Web Design</option>
-    <option value="5">Business Communications</option>
-  </select>
+    <!-- Include Bootstrap JS from CDN for Bootstrap components that require JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <div id="networking" class="content">
-    <h2>Networking Skills</h2>
-    <!-- Add content related to Networking Skills here -->
-  </div>
+    <script>
+        function showContent() {
+            var selectBox = document.getElementById("categories");
+            var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+            var contentDivs = document.getElementsByClassName("content");
 
-  <div id="end-user" class="content">
-    <h2>End-User Design</h2>
-    <!-- Add content related to End-User Design here -->
-  </div>
+            for (var i = 0; i < contentDivs.length; i++) {
+                contentDivs[i].style.display = "none";
+            }
 
-  <div id="training" class="content">
-    <h2>AI And Machine Learning</h2>
-    <!-- Add content related to Training Systems here -->
-  </div>
-
-  <div id="web-design" class="content">
-    <h2>Web Design</h2>
-    <!-- Add content related to Web Design here -->
-  </div>
-
-  <div id="business-communications" class="content">
-    <h2>Business Communications</h2>
-    <!-- Add content related to Business Communications here -->
-    <h3>Technical Instructional Document</h3>
-    <ul>
-      <li><strong>Developed instructional document</strong> to teach employees how to configure a new desktop workstation to be used in the workplace.</li>
-      <br>
-      <li>Applied <strong>technical skills</strong> to effectively instruct employees; as well as <strong>communication skills</strong> to make sure that the document was easy to understand for someone with little to no technical experience.</li>
-      <br>
-      <li>Demonstrated <strong>technical skills</strong>, <strong>interpersonal communication skills</strong>, as well as <strong>critical thinking skills</strong>.</li>
-      <br>
-      <li>This project taught me how to <strong>communicate</strong> with others on <strong>technical</strong> topics, even if they have little to no technical experience.</li>
-    </ul>
-  </div>
-</div>
-
-<script>
-function showContent() {
-  var selectBox = document.getElementById("categories");
-  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-  var contentDivs = document.getElementsByClassName("content");
-  
-  for (var i = 0; i < contentDivs.length; i++) {
-    contentDivs[i].style.display = "none";
-  }
-  
-  if (selectedValue !== "0") {
-    document.getElementById(selectedValue === "5" ? "business-communications" : selectedValue === "4" ? "web-design" : selectedValue === "3" ? "training" : selectedValue === "2" ? "end-user" : "networking").style.display = "block";
-  }
-}
-</script>
-
+            if (selectedValue !== "0") {
+                document.getElementById(selectedValue === "5" ? "business-communications" : selectedValue === "4" ? "web-design" : selectedValue === "3" ? "training" : selectedValue === "2" ? "end-user" : "networking").style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
